@@ -8,7 +8,7 @@ export default function Sidebar({ changeSelectedPage }) {
     <div>
       <div className="dashboard-sidebar">
         <ul className="sidebar-btn">
-          <li> <AccountBoxIcon/>Account</li>
+          {/* <li> <AccountBoxIcon/>Account</li> */}
           <li
             onClick={() => {
               changeSelectedPage("uploadCreation");

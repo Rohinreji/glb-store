@@ -58,9 +58,7 @@ export default function ProductPage() {
                     {e?.name}
                   </Link>
 
-                  <Typography level="title-lg" sx={{ mt: 1, fontWeight: "xl" }}>
-                    2,900 THB
-                  </Typography>
+                 
                   <Typography level="body-sm">
                     (Created by <b>{e?.creator} </b>)
                   </Typography>
