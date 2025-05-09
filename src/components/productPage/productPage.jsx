@@ -13,14 +13,16 @@ import Link from "@mui/joy/Link";
 import Typography from "@mui/joy/Typography";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import axiosMultipartInstance from "../apis/axiosMultipartInstance";
-import {BASE_URL} from "../apis/baseURL"
+import { BASE_URL } from "../apis/baseURL";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductPage() {
+  const navigate = useNavigate();
   const [data, SetData] = useState([]);
   useEffect(() => {
     getData();
     console.log("data", data);
-  },[]);
+  }, []);
   const getData = async () => {
     try {
       const response = await axiosMultipartInstance.post("/viewAllModel");
@@ -37,10 +39,20 @@ export default function ProductPage() {
         {data.map((e) => {
           return (
             <Col xs={6} md={3} className="d-flex flex-wrap gap-5 px-4 py-4">
-              <Card sx={{ width: 320, maxWidth: "100%", boxShadow: "lg" }}>
-                <CardOverflow>
+              <Card
+                sx={{ width: 320, maxWidth: "100%", boxShadow: "lg" }}
+                onClick={() => {
+                  navigate("./userViewSingleProduct");
+                }}
+              >
+                <CardOverflow >
                   <AspectRatio sx={{ minWidth: 200 }}>
-                    <img src={`${BASE_URL}${e?.img1?.filename}`} loading="lazy" alt="" />
+                    <img
+                      src={`${BASE_URL}${e?.img1?.filename}`}
+                      loading="lazy"
+                      alt=""
+                      oncli
+                    />
                   </AspectRatio>
                 </CardOverflow>
                 <CardContent>
@@ -58,9 +70,6 @@ export default function ProductPage() {
                     {e?.name}
                   </Link>
 
-                  <Typography level="title-lg" sx={{ mt: 1, fontWeight: "xl" }}>
-                    2,900 THB
-                  </Typography>
                   <Typography level="body-sm">
                     (Created by <b>{e?.creator} </b>)
                   </Typography>
