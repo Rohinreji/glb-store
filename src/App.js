@@ -10,7 +10,9 @@ import Dashboard from "./components/dashboard/dashboard";
 import UserSignup from "./components/user/userSignup";
 import UserLogin from "./components/user/userLogin";
 import AddProduct from "./components/productPage/addProduct";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
+import UserProfile from "./components/user/userProfile";
+import UserViewSingleProduct from "./components/user/userViewSingleProduct";
 
 function App() {
   return (
@@ -27,6 +29,11 @@ function App() {
           <Route path="/userSignup" element={<UserSignup />} />
           <Route path="/userLogin" element={<UserLogin />} />
           <Route path="/addProduct" element={<AddProduct />} />
+          <Route path="/userProfile/:id" element={<UserProfile />} />
+          <Route
+            path="/userViewSingleProduct"
+            element={<UserViewSingleProduct />}
+          />
         </Routes>
       </BrowserRouter>
     </div>

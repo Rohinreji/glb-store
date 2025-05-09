@@ -3,9 +3,10 @@ import UserNavbar from "../user/userNavbar";
 import Sidebar from "./sidebar";
 import AddProduct from "../productPage/addProduct";
 import ProductPage from "../productPage/productPage";
+import UserProfile from "../user/userProfile";
 
 export default function Dashboard() {
-  const [selectedPage, SetSelectedPage] = useState();
+  const [selectedPage, SetSelectedPage] = useState("profile");
 
   const changeSelectedPage = (value) => {
     SetSelectedPage(value);
@@ -20,6 +21,7 @@ export default function Dashboard() {
         <div className="col-10 dashboard-main">
           {selectedPage === "uploadCreation" && <AddProduct />}
           {selectedPage === "viewAllModels" && <ProductPage />}
+          {selectedPage === "profile" && <UserProfile />}
         </div>
       </div>
     </div>
